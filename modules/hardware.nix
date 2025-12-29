@@ -12,8 +12,7 @@
   boot.loader.grub.device = "/dev/mmcblk0";
   boot.loader.grub.useOSProber = false;
 
-  networking.hostName = "methaNAS"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "zimablade";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -59,17 +58,8 @@
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-#  environment.systemPackages = with pkgs; [
-#  vim 
-#  wget
-#  git
-#  ];
 
   system.stateVersion = "25.11";
-
-  #imports =
-  #  [ (modulesPath + "/installer/scan/not-detected.nix")
-  #  ];
 
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
