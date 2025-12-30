@@ -3,7 +3,7 @@
 
   flake.nixosConfigurations.zimablade = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
-    modules = with inputs.self.modules.nixos;  [ ssh git hardware rathole anubis acme];
+    modules = with inputs.self.modules.nixos;  [ ssh git hardware rathole anubis nginx acme];
   };
 
   flake.darwinConfigurations.google_pixel = inputs.nix-darwin.lib.nixosSystem {

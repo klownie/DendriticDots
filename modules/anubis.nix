@@ -1,6 +1,7 @@
-{ inputs, config, ... }:{
+{ inputs, config, lib, ... }:{
 
   flake.modules.nixos.anubis = {
+
     services.anubis = {
       defaultOptions.settings = {
         OG_PASSTHROUGH = true;
@@ -11,10 +12,17 @@
 
       instances.portofolioweb = {
         enable = true;
-        settings = {
-          TARGET = "http://127.0.0.1:8923";
-#          BIND = ":8923";
-        };
+
+	settings = {
+          BIND = "/run/anubis/anubis-portofolioweb/anubis.sock";
+          METRICS_BIND = "/run/anubis/anubis-portofolioweb/anubis-metrics.sock";
+          TARGET = "http://127.0.0.1:7878";
+	  DIFFICULTY = 5;
+ 	  SERVE_ROBOTS_TXT = true;
+	};
+
+        user = "anubis";
+        group = "anubis";
       };
 
     };

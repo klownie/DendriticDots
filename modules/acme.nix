@@ -7,6 +7,7 @@
       certs."portofolio.klownie.me" = {
         dnsProvider = "cloudflare";
         environmentFile = "/etc/nixos/cloudflare_creds";
+        webroot = null;
       };
     };
   };
