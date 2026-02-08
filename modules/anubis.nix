@@ -17,7 +17,8 @@
           BIND = "/run/anubis/anubis-portofolioweb/anubis.sock";
           METRICS_BIND = "/run/anubis/anubis-portofolioweb/anubis-metrics.sock";
           TARGET = "http://127.0.0.1:7878";
-	  DIFFICULTY = 5;
+	  DIFFICULTY = 20;
+	  OG_PASSTHROUGH = false;
  	  SERVE_ROBOTS_TXT = true;
 	};
 

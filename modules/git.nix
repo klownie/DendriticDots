@@ -11,8 +11,14 @@
         user = { 
           name = "klownie";
           email = "audrickyeu@proton.me";
-          signingKey = "/etc/ssh/methaNas_git_key";
+          signingKey = "/etc/ssh/zimablade_git_key";
         };
+
+        signing = {
+            signByDefault = true; 
+            key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ93hsGT0sbssQkKMlZOzKhiNeWxpTAZwn4SLPeGP2bh root@zimablade" ;
+        };	
+
 	gpg.format = "ssh";
         commit.gpgsign = true;
 	init.defaultBranch = "main";
