@@ -1,12 +1,17 @@
 { inputs, config, ... }:{
 
   flake.modules.nixos.acme = {
+
+    age.secrets.cloudflare-creds = {
+        file = ../.secrets/cloudflare-creds.age;
+    };
+
     security.acme = {
       acceptTerms = true;
       defaults.email = "admin+audrickyeu@proton.me";
-      certs."portofolio.klownie.me" = {
+      certs."portfolio.klownie.me" = {
         dnsProvider = "cloudflare";
-        environmentFile = "/etc/nixos/cloudflare_creds";
+        environmentFile = "/run/agenix/cloudflare-creds";
         webroot = null;
       };
     };

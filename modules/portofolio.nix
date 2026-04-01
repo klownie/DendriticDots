@@ -1,6 +1,9 @@
 { inputs, config, ... }:{
 
   flake.modules.nixos.portofolio = {
+
+    networking.firewall.allowedTCPPorts = [ 7878 ];
+
     systemd.services.portofolio = {
       description = "Audrick Portofolio Wbsite";
       after = [ "network.target" ];
@@ -17,5 +20,6 @@
         Environment = "RUST_LOG=info";
       };
     };
+
   };
 }

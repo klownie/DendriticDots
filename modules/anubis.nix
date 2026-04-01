@@ -10,12 +10,12 @@
         WEBMASTER_EMAIL = "audrickyeu@proton.me";
       };
 
-      instances.portofolioweb = {
+      instances.portfolioweb = {
         enable = true;
 
 	settings = {
-          BIND = "/run/anubis/anubis-portofolioweb/anubis.sock";
-          METRICS_BIND = "/run/anubis/anubis-portofolioweb/anubis-metrics.sock";
+          BIND = "/run/anubis/anubis-portfolioweb/anubis.sock";
+          METRICS_BIND = "/run/anubis/anubis-portfolioweb/anubis-metrics.sock";
           TARGET = "http://127.0.0.1:7878";
 	  DIFFICULTY = 20;
 	  OG_PASSTHROUGH = false;

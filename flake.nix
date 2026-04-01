@@ -1,5 +1,3 @@
-# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
-# Use `nix run .#write-flake` to regenerate it.
 {
   description = "A dendritic setup.";
 
@@ -12,6 +10,8 @@
       url = "github:hercules-ci/flake-parts";
     };
     import-tree.url = "github:vic/import-tree";
+    agenix.url = "github:ryantm/agenix";
+    nvf.url = "github:notashelf/nvf";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-lib.follows = "nixpkgs";
     systems.url = "github:nix-systems/default";

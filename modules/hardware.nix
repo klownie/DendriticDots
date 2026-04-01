@@ -7,6 +7,12 @@
 {
 
   flake.modules.nixos.hardware = {
+
+  fileSystems."/mnt/storage" = {
+    device = "UUID=e5c7d7a9-7340-437f-84bd-2a31851263fe";
+    fsType = "btrfs";
+    options = [ "compress=zstd" "noatime" ];
+  };
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/mmcblk0";
@@ -61,7 +67,7 @@
 
   system.stateVersion = "25.11";
 
-  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
+  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "usbhid" "usb_storage" "sd_mod" "sdhci_pci"];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];

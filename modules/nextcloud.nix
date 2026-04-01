@@ -1,14 +1,27 @@
 { inputs, config, ... }:{
 
   flake.modules.nixos.nextcloud = { pkgs, ... }: {
-    environment.etc."nextcloud-admin-pass".text = "4EbwIvKTQ5aBe$@g*sGdq";
+
+    age.secrets.nextcloud-admin-password = {
+        file = ../.secrets/nextcloud-admin-password.age;
+        owner = "nextcloud";
+        group = "nextcloud";
+    };
+	
+    networking.firewall.allowedTCPPorts = [ 80 443 ];
+
     services.nextcloud = {
       enable = true;
-      package = pkgs.nextcloud32;
       hostName = "localhost";
-      config.adminpassFile = "/etc/nextcloud-admin-pass";
+      datadir = "/mnt/storage";
+      package = pkgs.nextcloud33;
+      config.adminuser = "klownie";
+      config.adminpassFile = "/run/agenix/nextcloud-admin-password";
       config.dbtype = "sqlite";
+      settings = {
+	trusted_domains = [ "192.168.1.97" "192.168.1.88" "37.60.255.83" "portfolio.klownie.me"];
+      };
+
     };
   };
-
 }

@@ -16,6 +16,11 @@
           path = "/etc/ssh/zimablade_git_key";
 	  type = "ed25519";
         }
+        {
+          openSSHFormat = true;
+          path = "/etc/ssh/zimablade_agenix_key";
+          type = "ed25519";
+        }
       ];
     };
 
