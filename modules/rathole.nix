@@ -1,9 +1,9 @@
-{ inputs, config, ... }:{
+{
 
   flake.modules.nixos.rathole = {
 
-    age.secrets.rathole-client = {
-        file = ../.secrets/rathole-client.toml.age;
+    age.secrets = {
+      rathole-client.file = ../.secrets/rathole-client.age;
     };
 
     services.rathole = {

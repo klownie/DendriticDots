@@ -1,6 +1,6 @@
-{ inputs, config, ... }:{
+{ inputs, pkgs, ... }:{
 
-  flake.modules.nixos.agenix = { pkgs, ...}: {
+  flake.modules.nixos.agenix =  {
     imports = [
       inputs.agenix.nixosModules.default
     ];

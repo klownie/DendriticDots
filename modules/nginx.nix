@@ -1,4 +1,3 @@
-{ inputs, config, lib, ... }:
 {
   flake.modules.nixos.nginx = {
 

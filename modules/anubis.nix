@@ -1,5 +1,4 @@
-{ inputs, config, lib, ... }:{
-
+{
   flake.modules.nixos.anubis = {
 
     services.anubis = {
