@@ -1,5 +1,4 @@
 {
-
   flake.modules.nixos.nextcloud = { pkgs, ... }: {
 
     age.secrets.nextcloud-admin-password = {
@@ -13,13 +12,14 @@
     services.nextcloud = {
       enable = true;
       hostName = "localhost";
+      # https = true;
       datadir = "/mnt/storage";
       package = pkgs.nextcloud33;
       config.adminuser = "klownie";
       config.adminpassFile = "/run/agenix/nextcloud-admin-password";
       config.dbtype = "sqlite";
       settings = {
-	trusted_domains = [ "192.168.1.97" "192.168.1.88" "37.60.255.83" "portfolio.klownie.me"];
+	      trusted_domains = [ "192.168.1.97" "192.168.1.88" "37.60.255.83" "portfolio.klownie.me"];
       };
 
     };

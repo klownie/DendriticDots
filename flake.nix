@@ -10,7 +10,7 @@
       url = "github:hercules-ci/flake-parts";
     };
     import-tree.url = "github:vic/import-tree";
-    agenix.url = "github:ryantm/agenix";
+    agenix.url = "github:/yaxitech/ragenix";
     nvf.url = "github:notashelf/nvf";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-lib.follows = "nixpkgs";

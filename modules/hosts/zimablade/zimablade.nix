@@ -6,7 +6,7 @@
     modules = with inputs.self.modules.nixos;  [
       zimablade
       common
-      agenix 
+      ragenix 
       ssh 
       git 
       nvim

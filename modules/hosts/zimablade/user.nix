@@ -1,4 +1,4 @@
-{ 
+{pkgs, ...}:{ 
   flake.modules.nixos.zimablade = {
     users.users.klownie = {
       isNormalUser = true;
