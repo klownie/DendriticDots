@@ -7,7 +7,7 @@
 
     environment.systemPackages = [ 
       pkgs.rage
-      pkgs.ragenix
+      #  pkgs.ragenix
       inputs.agenix.packages."x86_64-linux".default
     ];
   };
