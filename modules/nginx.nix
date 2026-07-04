@@ -10,7 +10,9 @@
         "unix:/run/anubis/anubis-portfolioweb/anubis.sock" = {};
       };
 
-      virtualHosts."portfolio.klownie.me" = {
+      virtualHosts."my_portofolio_website" = {
+        serverName = "portfolio.klownie.me";
+        enableACME = true;
         forceSSL = true;
         http2 = true;
 
@@ -18,11 +20,6 @@
           { addr = "0.0.0.0"; port = 3000; ssl = true; }
           { addr = "[::]";    port = 3000; ssl = true; } 
         ];
-
-        sslCertificate =
-          "/var/lib/acme/portfolio.klownie.me/fullchain.pem";
-        sslCertificateKey =
-          "/var/lib/acme/portfolio.klownie.me/key.pem";
 
         locations."/" = {
           proxyPass = "http://anubis";
@@ -34,24 +31,27 @@
         };
       };
 
-      # virtualHosts."drive.klownie.me" = {
-      #   enableACME = true;
-      #   forceSSL = true;
-      #   http2 = true;
-      #
-      #   listen = [
-      #     { addr = "0.0.0.0"; port = 7000; ssl = true; }
-      #   ];
-      #
-      #   locations."/" = {
-      #     proxyPass = "http://127.0.0.1:443";
-      #     extraConfig = ''
-      #       proxy_set_header Host $host;
-      #       proxy_set_header X-Real-IP $remote_addr;
-      #       proxy_set_header X-Forwarded-Proto $scheme;
-      #     '';
-      #   };
-      # };
+      virtualHosts."my_nextcloud_instance" = {
+        serverName = "portfolio.klownie.me";
+        enableACME = true;
+        forceSSL = true;
+        http2 = true;
+
+        listen = [
+          { addr = "0.0.0.0"; port = 27702; ssl = true; }
+          { addr = "[::]"; port = 27702; ssl = true; }
+        ];
+
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:80";
+          extraConfig = ''
+            proxy_set_header Host $host:7000;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Http-Version $server_protocol;
+          '';
+        };
+
+      };
 
     };
   };

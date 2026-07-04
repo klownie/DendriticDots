@@ -11,8 +11,8 @@
 
     services.nextcloud = {
       enable = true;
-      hostName = "localhost";
-      # https = true;
+      hostName = "portfolio.klownie.me";
+      https = true;
       datadir = "/mnt/storage";
       package = pkgs.nextcloud33;
       config.adminuser = "klownie";
@@ -20,6 +20,19 @@
       config.dbtype = "sqlite";
       settings = {
 	      trusted_domains = [ "192.168.1.97" "192.168.1.88" "37.60.255.83" "portfolio.klownie.me"];
+        enabledPreviewProviders = [
+          "OC\\Preview\\BMP"
+          "OC\\Preview\\GIF"
+          "OC\\Preview\\JPEG"
+          "OC\\Preview\\Krita"
+          "OC\\Preview\\MarkDown"
+          "OC\\Preview\\MP3"
+          "OC\\Preview\\OpenDocument"
+          "OC\\Preview\\PNG"
+          "OC\\Preview\\TXT"
+          "OC\\Preview\\XBitmap"
+          "OC\\Preview\\HEIC"
+        ];
       };
 
     };

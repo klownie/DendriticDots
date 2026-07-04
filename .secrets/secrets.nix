@@ -8,7 +8,7 @@ let
   systems = [ zimablade wsl contabo-server ];
 in
 {
-  "nextcloud-admin-password.age".publicKeys = [ klownie zimablade ];
+  "nextcloud-admin-password.age".publicKeys = [ zimablade ];
   "cloudflare-creds.age".publicKeys = [ zimablade ];
   "rathole-client.age".publicKeys = [ zimablade ];
 }
