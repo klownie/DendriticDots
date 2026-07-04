@@ -1,5 +1,5 @@
 {pkgs, ...}:{ 
-  flake.modules.nixos.zimablade = {
+  flake.modules.nixos.wsl = {
     users.users.klownie = {
       isNormalUser = true;
       description = "klownie";
